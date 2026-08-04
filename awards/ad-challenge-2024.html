@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Autonomous Driving AI Challenge 2024 — Jungyoon Lee</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<main class="wrap detail">
+  <a class="back" href="../index.html">← Jungyoon Lee</a>
+
+  <h1>Autonomous Driving AI Challenge 2024 — Vehicle Object &amp; State Recognition</h1>
+  <p class="meta"><strong>1st of 146 teams</strong> · Director's Award · IITP (Korea's national ICT R&amp;D agency)<br>
+  Team lead · Nov 2024</p>
+
+  <img class="hero-media" src="../assets/fig-od2024.jpg" alt="Vehicle instance segmentation results across driving scenes">
+  <p class="mock">▲ Qualitative results — per-vehicle instance masks across clear, hazy and low-visibility scenes.</p>
+
+  <h2>Task</h2>
+  <p>Recognize each vehicle and its composite state — <strong>class</strong>, <strong>lane position</strong>,
+  and <strong>taillight action</strong> (multiple can hold at once) — with instance masks.</p>
+
+  <h2>Model</h2>
+  <p>A shared backbone and pixel decoder feed two heads: the transformer decoder emits class and mask, a parallel
+  <em>complex decoder</em> reuses that mask for lane position and taillight state. Built on
+  <strong>Mask2Former + DINOv2</strong> with masked attention (baseline: YOLOv8). mAP
+  <strong>0.73 → 0.75</strong>.</p>
+
+  <h2>Slides</h2>
+  <div class="slides">
+    <iframe src="../slides/ad-challenge-2024.pdf#view=FitH" title="Competition deck — Autonomous Driving AI Challenge 2024" loading="lazy"></iframe>
+  </div>
+  <p class="mock">13 slides (Korean) &nbsp;·&nbsp; <a class="deck" href="../slides/ad-challenge-2024.pdf" target="_blank" rel="noopener">Open the PDF</a></p>
+
+  <h2>Links</h2>
+  <p><a href="https://www.korea.kr/briefing/pressReleaseView.do?newsId=156661158" target="_blank" rel="noopener">Ministry of Science and ICT press release</a> (Korean, 19 Nov 2024) — lists our team as <strong>VIP (이정윤)</strong> in the vehicle composite-state recognition track.</p>
+</main>
+<script src="../assets/v.js"></script>
+</body>
+</html>

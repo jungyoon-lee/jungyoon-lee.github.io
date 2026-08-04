@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>WiFi-JEPA — Jungyoon Lee</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<main class="wrap detail">
+  <a class="back" href="../index.html">← Jungyoon Lee</a>
+
+  <h1>WiFi-JEPA: Self-supervised Learning for WiFi-CSI 3D Human Pose Estimation</h1>
+  <p class="meta"><a href="https://kimdoeon.github.io/" target="_blank" rel="noopener">Doeon Kim</a>*, <span class="me">Jungyoon Lee*</span>, Seongsin Kim, <a href="https://scholar.google.com/citations?user=Hw6lYIcAAAAJ" target="_blank" rel="noopener">Seong-heum Kim</a> &nbsp;·&nbsp; *equal contribution<br>
+  ECCV 2026 · Soongsil University</p>
+
+  <img class="hero-media" src="../assets/fig-wifijepa-teaser.jpg" alt="Simulated and real CSI scenes into WiFi-JEPA, with ground-truth and predicted 3D poses">
+  <p class="mock">▲ Simulated and real CSI capture scenes feed the same model; ground truth and prediction on the right.</p>
+
+  <h2>Overview</h2>
+  <p>WiFi Channel State Information (CSI) enables privacy-preserving human pose sensing through walls and in
+  darkness, but existing WiFi-based pose estimators often fail under domain shifts. WiFi-JEPA is a
+  self-supervised framework that learns CSI-native representations by predicting masked latent embeddings.</p>
+
+  <h2>Approach</h2>
+  <ul>
+    <li><strong>Axis-preserving tokenization</strong> — keeps the (subcarrier × time × link) structure of CSI (60 × 20 × 9) instead of flattening into spectrograms.</li>
+    <li><strong>Link masking</strong> — masks whole antenna-link columns, forcing the encoder to learn the cross-link structure that encodes 3D geometry.</li>
+    <li><strong>Ray-traced synthetic CSI</strong> — NVIDIA Sionna RT generates benchmark-compatible CSI from geometric primitives (spheres, cubes, cylinders): ~90K frames in ~10 GPU-hours, with no human meshes or motion capture.</li>
+    <li><strong>CSI-native JEPA</strong> — predicts the masked links' latent embeddings with an EMA target encoder, then fine-tunes with a PETR-style decoder.</li>
+  </ul>
+
+  <img class="hero-media" src="../assets/fig-wifijepa-arch.jpg" alt="WiFi-JEPA architecture — link-masked pre-training and supervised pose fine-tuning">
+  <p class="mock">▲ Phase 1 (top): self-supervised pre-training with link masking over the (T, L) token grid. Phase 2 (bottom): supervised fine-tuning with a pose head.</p>
+
+  <h2>Results</h2>
+  <ul>
+    <li>State of the art: <strong>76.8 mm</strong> single-person / <strong>93.5 mm</strong> multi-person MPJPE (+14.7% over the previous best, DT-Pose).</li>
+    <li>Cross-environment error reduced by <strong>48%</strong>; hand-joint error reduced by <strong>64%</strong>.</li>
+    <li>Pretraining on synthetic primitives reaches within ~3 mm of real-data pretraining; real + simulated is best.</li>
+  </ul>
+
+  <h2>Links</h2>
+  <p><a href="https://wifi-jepa.github.io/" target="_blank" rel="noopener">Project page</a> &nbsp;·&nbsp; <a href="https://arxiv.org/abs/2607.11064" target="_blank" rel="noopener">Paper</a> &nbsp;·&nbsp; Code (soon)</p>
+
+  <h2>BibTeX</h2>
+  <div class="bibtex">@inproceedings{kim2026wifijepa,
+  title     = {WiFi-JEPA: Self-supervised Learning for WiFi-CSI 3D Human Pose Estimation},
+  author    = {Kim, Doeon and Lee, Jungyoon and Kim, Seongsin and Kim, Seong-heum},
+  booktitle = {Proceedings of the European Conference on Computer Vision (ECCV)},
+  year      = {2026}
+}</div>
+</main>
+<script src="../assets/v.js"></script>
+</body>
+</html>

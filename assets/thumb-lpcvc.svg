@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00432a"/><stop offset="1" stop-color="#2f8f63"/></linearGradient></defs>
+<rect width="480" height="270" fill="url(#g)"/>
+<text x="240" y="122" fill="#ffffff" font-family="system-ui,sans-serif" font-size="25" font-weight="700" text-anchor="middle">Low-Power CV 2026</text>
+<text x="240" y="156" fill="#ffffff" fill-opacity="0.85" font-family="system-ui,sans-serif" font-size="14" text-anchor="middle">Track 3 · AI-Generated Image Detection</text>
+</svg>

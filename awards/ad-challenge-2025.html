@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Autonomous Driving AI Challenge 2025 — Jungyoon Lee</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<main class="wrap detail">
+  <a class="back" href="../index.html">← Jungyoon Lee</a>
+
+  <h1>Autonomous Driving AI Challenge 2025 — Semantic Segmentation</h1>
+  <p class="meta"><strong>1st of 154 teams</strong> · Deputy Prime Minister &amp; Minister of Science and ICT Award (Korea)<br>
+  Team SSU VIP · Team lead · Nov 2025</p>
+
+  <img class="hero-media" src="../assets/thumb-seg2025.jpg" alt="Semantic segmentation output — vehicles, pedestrian, lane markings">
+  <p class="mock">▲ Segmentation output on a road scene — vehicles (blue), a pedestrian (green), lane markings (orange).</p>
+
+  <h2>Problem</h2>
+  <p>Rare road users — pedestrians, bicycles, motorcycles, kickboards — were badly underrepresented. Architecture
+  tuning had plateaued, so I changed the data distribution instead.</p>
+
+  <h2>Data pipeline</h2>
+  <p><strong>SAM</strong> proposes masks → <strong>FLUX.1-Fill-dev</strong> inpaints rare road users and
+  rain / lens-dirt corner cases → <strong>InternImage-H</strong> auto-labels them → the pool is paste-augmented
+  on the fly while training <strong>GCNet</strong>.</p>
+
+  <h2>Model</h2>
+  <p><strong>GCNet</strong> — heavy multi-branch blocks at training time collapse into a single-path light
+  network at inference, so accuracy costs no latency.</p>
+
+  <h2>Results</h2>
+  <ul>
+    <li>mIoU <strong>53.16 → 56.74</strong> (+3.78 from synthetic data) → <strong>57.04</strong> final.</li>
+    <li><strong>1st of 154 teams</strong>; Deputy Prime Minister &amp; Minister of Science and ICT Award.</li>
+  </ul>
+
+  <h2>Slides</h2>
+  <div class="slides">
+    <iframe src="../slides/ad-challenge-2025.pdf#view=FitH" title="Competition deck — Autonomous Driving AI Challenge 2025" loading="lazy"></iframe>
+  </div>
+  <p class="mock">19 slides (Korean) &nbsp;·&nbsp; <a class="deck" href="../slides/ad-challenge-2025.pdf" target="_blank" rel="noopener">Open the PDF</a></p>
+
+  <h2>Links</h2>
+  <p><a href="https://www.korea.kr/briefing/pressReleaseView.do?newsId=156728330" target="_blank" rel="noopener">Ministry of Science and ICT press release</a> (Korean, 14 Nov 2025)</p>
+</main>
+<script src="../assets/v.js"></script>
+</body>
+</html>
