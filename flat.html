@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>The Firmament | Jungyoon Lee</title>
+<style>
+  html,body{margin:0;height:100%;background:#0b0e17;color:#dfe6e3;font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow:hidden}
+  #app{position:fixed;inset:0}
+  #app canvas{display:block;width:100%;height:100%}
+  .cap{position:fixed;left:22px;bottom:20px;pointer-events:none}
+  .cap b{display:block;font-size:19px;font-weight:650;letter-spacing:-.01em}
+  .cap span{font-size:13px;opacity:.7}
+  .hint{position:fixed;right:22px;bottom:20px;font-size:12px;opacity:.45}
+  .back{position:fixed;left:22px;top:18px;font-size:13px;color:#9fb3a8;text-decoration:none;opacity:.8}
+  .back:hover{opacity:1}
+</style>
+<script type="importmap">{ "imports": { "three": "./assets/three.module.min.js" } }</script>
+</head>
+<body>
+<a class="back" href="./index.html">← Jungyoon Lee</a>
+<div id="app"></div>
+<div class="cap"><b>The Firmament</b><span>Not to scale. Also not flat.</span></div>
+<div class="hint">drag to orbit · scroll to zoom</div>
+<script type="module" src="./assets/flat-earth.js"></script>
+</body>
+</html>
